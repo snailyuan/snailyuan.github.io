@@ -4,14 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>袁俊凯的主页</title>
+    <title>袁叔叔的主页</title>
+    <style lang="">
+        body{
+            background:#000;
+            color:#fff;
+            margin:0;
+            padding:0;
+        }
+        .title{
+            text-align: center;
+            font-size:80px;
+            color:#fff;
+            text-shadow: 0 0 30px #f77158;
+            height:100%;
+        }
+        #Menu{
+            background: url(menu_bg.jpg) no-repeat; 
+            background-size: cover;
+            width:100%;
+            height:1000px;
+            margin-top:200px;
+        }
+    </style>
 </head>
 <body>
-    <h1 id="test">在下袁俊凯，有句买妈批不知当不当讲。</h1>
+    <div id="Head">
+        <h1 class="title">I</h1>
+        <h1 class="title">A&nbsp;M</h1>
+        <h1 class="title">Y&nbsp;O&nbsp;U&nbsp;R</h1>
+        <h1 class="title">F&nbsp;A&nbsp;T&nbsp;H&nbsp;E&nbsp;R</h1>
+    </div>
+    <div id="Menu">
+        位置测试
+    </div>
     <script>
-        var test=document.getElementById("test");
-        test.onclick=function(){
-            alert("hello")
+        document.onmousewheel=function(){
+            alert("test")
         }
     </script>
 </body>
