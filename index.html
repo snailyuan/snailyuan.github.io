@@ -6,6 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>袁叔叔的主页</title>
     <style lang="">
+        a:hover {
+            color: #916c9f;
+        } 
+        a{
+            text-decoration: none;
+            color:#fff;
+        }
         body{
             background:#000;
             color:#fff;
@@ -20,11 +27,20 @@
             height:100%;
         }
         #Menu{
-            background: url(menu_bg.jpg) no-repeat; 
+            background:url(menu_bg.jpg) no-repeat; 
             background-size: cover;
             width:100%;
             height:1000px;
             margin-top:200px;
+            z-index:10;
+            position: absolute;
+        }
+        #Menu>*{
+            text-align: center;
+        }
+        #Menu>p:first-child{
+            font-size: 40px;
+            padding-top: 300px;
         }
     </style>
 </head>
@@ -36,12 +52,56 @@
         <h1 class="title">F&nbsp;A&nbsp;T&nbsp;H&nbsp;E&nbsp;R</h1>
     </div>
     <div id="Menu">
-        位置测试
+        <p>袁俊凯</p>
+        <p>Code & Design</p>
+        <p>
+            <a href="https://github.com/snailyuan" target="_blank">Github</a>
+        </p>
+        
     </div>
-    <script>
-        document.onmousewheel=function(){
-            alert("test")
+    <!--
+        向下滑动滚轮-head的margin-top变大
+        向上滑动滚轮-head的margin-top变小
+    -->
+    <!--<script src="main.js"></script>-->
+<script type="text/javascript">
+    var scrollFunc=function(e){ 
+        var head=document.getElementById("Head");
+        var marigntopvalue=head.style.marginTop;
+        e=e || window.event; 
+        if(e.wheelDelta){//IE/Opera/Chrome 
+            if(e.wheelDelta==120)
+            {
+                //向上滚动事件
+                head.style.marginTop=Number(marigntopvalue)-50+"px;";
+                console.log(head.style.marginTop);
+            
+            }else
+            { 
+                //向下滚动事件
+                head.style.marginTop=Number(marigntopvalue)+50+"px;";
+                console.log(head.style.marginTop);
+            } 
+        }else if(e.detail){
+            //Firefox 
+            if(e.detail==-3) { 
+                //向上滚动事件<br> 
+                head.style.marginTop-="50px"
+                
+            }else { 
+                //向下滚动事件<br>
+                head.style.marginTop+="50px"
+                
+            } 
+        } 
+    };
+    if(document.addEventListener){ 
+        //adding the event listerner for Mozilla
+        document.addEventListener("DOMMouseScroll" ,scrollFunc, false);
         }
-    </script>
+        //IE/Opera/Chrome 
+        window.onmousewheel=document.onmousewheel=scrollFunc;
+	 
+</script>
 </body>
 </html>
